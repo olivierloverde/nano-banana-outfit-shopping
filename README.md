@@ -4,8 +4,6 @@ A mobile-first web application that allows users to browse model outfits infinit
 
 **This is a working Proof of Concept (PoC) demonstrating the capabilities of nano-banana AI models in fashion and visual understanding applications.**
 
-![Nano Banana Demo](https://via.placeholder.com/800x400/1F2937/FFFFFF?text=Nano+Banana+Outfit+Shopping)
-
 ## 🚀 Features
 
 - **Infinite Outfit Browsing**: Scroll through endless model outfits with smooth infinite loading

@@ -21,7 +21,7 @@ A mobile-first web application that allows users to browse model outfits infinit
 - **Next.js 14+** with App Router
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
-- **Zustand** for state management
+- **React State** with hooks (no external state management)
 
 ### Backend
 - **Node.js** with Express.js
@@ -118,7 +118,7 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 
 ### 1. Google Gemini API Key
 
-1. Go to [Google AI Studio](https://makersuite.google.com/)
+1. Go to [Google AI Studio](https://aistudio.google.com/)
 2. Click "Get API key" 
 3. Create a new project or select existing one
 4. Generate your API key
@@ -184,6 +184,46 @@ Visit `http://localhost:3001/health` to verify the backend is running and config
 2. **Convert to Flat Lay**: Click on any outfit to open the modal, then click "Convert to Flat Lay"
 3. **Shop Items**: After conversion, browse the "Shop Items" tab to find similar pieces
 4. **Mobile Experience**: The app is optimized for mobile - try it on your phone!
+
+## 🖼️ Adding New Model Images
+
+To add new outfit images to the application:
+
+1. **ModelService Configuration**: The `ModelService` in `api/src/services/ModelService.ts` contains the mock data with outfit URLs
+2. **Add New Images**: Simply add new image URLs to the `mockModels` array in the ModelService
+3. **Image Requirements**: Use high-quality fashion/outfit images with good lighting and clear clothing visibility
+4. **Supported Formats**: JPG, PNG, WebP formats are supported
+
+Example:
+```typescript
+{
+  id: 'new-model-id',
+  name: 'Model Name',
+  imageUrl: 'https://your-image-url.com/outfit.jpg',
+  description: 'Casual summer outfit'
+}
+```
+
+## 📁 Generated Files Location
+
+When you use the flat lay conversion feature:
+
+### **Flat Lay Images**
+- **Location**: `api/public/generated/flat-lay/`
+- **Naming**: `flat-lay-[timestamp]-[random].jpg`
+- **Purpose**: AI-generated flat lay versions of outfits
+
+### **Extracted Item Images**  
+- **Location**: `api/public/generated/items/`
+- **Naming**: `item-[itemId]-[timestamp].jpg`
+- **Purpose**: Individual clothing pieces extracted from flat lays
+
+### **Access URLs**
+Generated images are accessible via:
+- Flat lay: `http://localhost:3001/generated/flat-lay/[filename]`
+- Items: `http://localhost:3001/generated/items/[filename]`
+
+**Note**: These folders are created automatically when you first generate content.
 
 ## 🏗️ Project Structure
 
